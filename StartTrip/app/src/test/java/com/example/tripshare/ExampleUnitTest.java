@@ -1,4 +1,4 @@
-package com.example.starttrip;
+package com.example.tripshare;
 
 import org.junit.Test;
 

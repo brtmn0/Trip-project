@@ -1,4 +1,4 @@
-package com.example.cameratest;
+package com.example.StartTrip;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(username1.equals("admin") && pass1.equals("geheim"))
         {
-            startActivity(new Intent(MainActivity.this, secondactivity.class));
+            startActivity(new Intent(MainActivity.this, Main2Activity.class));
             text.setText("");
         }else{
             text.setText("inlog klopt niet");

@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Memories" />
         <item
+            android:id="@+id/maps"
+            android:icon="@drawable/ic_menu_maps"
+            android:title="Map" />
+        <item
             android:id="@+id/friends"
             android:icon="@drawable/ic_group_black_24dp"
             android:title="Friends" />

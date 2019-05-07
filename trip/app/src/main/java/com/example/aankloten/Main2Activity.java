@@ -87,8 +87,8 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.memories) {
 
-        } else if (id == R.id.maps) {
-
+        } else if (id == R.id.maps_activ) {
+            startActivity(new Intent(Main2Activity.this, MapsActivity.class));
         } else if (id == R.id.friends) {
 
         } else if (id == R.id.account) {

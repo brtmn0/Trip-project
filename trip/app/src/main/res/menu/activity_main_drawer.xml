@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Memories" />
         <item
-            android:id="@+id/maps"
+            android:id="@+id/maps_activ"
             android:icon="@drawable/ic_menu_maps"
             android:title="Map" />
         <item

@@ -13,5 +13,6 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_secondactivity">secondactivity</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="map_key">map_key</string>
+    <string name="map_key">placeholder_voor_key</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

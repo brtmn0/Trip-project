@@ -21,19 +21,9 @@
             android:icon="@drawable/ic_menu_maps"
             android:title="Map" />
         <item
-            android:id="@+id/friends"
-            android:icon="@drawable/ic_group_black_24dp"
-            android:title="Friends" />
-
-
-        <item
-            android:id="@+id/account"
+            android:id="@+id/logout"
             android:icon="@drawable/ic_person_black_24dp"
-            android:title="Account" />
-        <item
-            android:id="@+id/setting"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Setting" />
+            android:title="Uitloggen" />
     </group>
 
 </menu>

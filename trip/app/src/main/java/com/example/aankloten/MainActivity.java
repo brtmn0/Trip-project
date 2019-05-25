@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.content.SharedPreferences;
 
 public class MainActivity extends AppCompatActivity {
     Button   loginButton;
@@ -29,12 +30,42 @@ public class MainActivity extends AppCompatActivity {
         username1 = this.username.getText().toString();
         pass1 = this.pass.getText().toString();
 
-        if(username1.equals("admin") && pass1.equals("geheim"))
+        SharedPreferences sp1=this.getSharedPreferences("Login", MODE_PRIVATE);
+        String unm=sp1.getString(username1, null);
+        String pass = sp1.getString(username1+"pass", null);
+
+        if(username1.equals(unm) && pass1.equals(pass))
         {
             startActivity(new Intent(MainActivity.this, Main2Activity.class));
             text.setText("");
+            return;
         }else{
             text.setText("inlog klopt niet");
+            return;
         }
     }
+
+    public void regOnClick(View v) {
+        TextView text=(TextView)findViewById(R.id.textView2);
+        username1 = this.username.getText().toString();
+        pass1 = this.pass.getText().toString();
+
+        SharedPreferences sp=this.getSharedPreferences("Login", MODE_PRIVATE);
+        String unm2=sp.getString(username1, null);
+
+
+
+        if(unm2 == null && username1 != ""){
+            SharedPreferences.Editor Ed = sp.edit();
+            Ed.putString(username1,username1);
+            Ed.putString(username1+"pass",pass1);
+            Ed.apply();
+            text.setText("");
+            return;
+        }else {
+            text.setText("username bestaat al");
+            return;
+        }
+    }
+
 }

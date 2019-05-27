@@ -10,13 +10,13 @@
         android:id="@+id/loginB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="108dp"
-        android:background="@android:color/darker_gray"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="168dp"
+        android:background="@color/colorPrimary"
         android:onClick="buttonOnClick"
         android:text="LOGIN"
-        android:textColor="@android:color/white"
+        android:textColor="@color/common_google_signin_btn_text_dark_pressed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -99,5 +99,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        tools:layout_editor_absoluteX="271dp"
+        tools:layout_editor_absoluteY="6dp" />
+
 
 </android.support.constraint.ConstraintLayout>

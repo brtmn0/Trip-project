@@ -39,12 +39,13 @@
         android:layout_height="48dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="10dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/colorPrimary"
         android:onClick="buttonOnClick"
         android:text="LOGIN"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass2" />
+  
 
     <EditText
         android:id="@+id/pass"
@@ -134,6 +135,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="101dp"
@@ -149,5 +151,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass" />
+  
+     <include
+        android:id="@+id/include"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        tools:layout_editor_absoluteX="271dp"
+        tools:layout_editor_absoluteY="6dp" />
+
 
 </android.support.constraint.ConstraintLayout>

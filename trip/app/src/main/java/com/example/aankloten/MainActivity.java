@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }else{
             text.setText("inlog klopt niet");
+            text.setBackgroundResource(R.color.red);
             return;
         }
     }
@@ -68,15 +69,18 @@ public class MainActivity extends AppCompatActivity {
                 Ed.putString(username1,username1);
                 Ed.putString(username1+"pass",pass1);
                 Ed.apply();
-                text.setText("");
+                text.setText("Registratie gelukt");
+                text.setBackgroundResource(R.color.green);
                 return;
             }else{
                 text.setText("registratie ging fout");
+                text.setBackgroundResource(R.color.red);
                 return;
             }
 
         }else {
             text.setText("username in gebruik");
+            text.setBackgroundResource(R.color.red);
             return;
         }
     }

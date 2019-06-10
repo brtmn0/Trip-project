@@ -72,6 +72,7 @@ public class Main2Activity extends AppCompatActivity
             startActivity(new Intent(Main2Activity.this, MapsActivity.class));
 
         } else if (id == R.id.logout) {
+            startActivity(new Intent(Main2Activity.this,MainActivity.class));
 
         }
 

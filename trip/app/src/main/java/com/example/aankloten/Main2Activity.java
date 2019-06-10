@@ -67,7 +67,7 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.makememory) {
             startActivity(new Intent(Main2Activity.this, cam2.class));
         } else if (id == R.id.memories) {
-
+            startActivity(new Intent(Main2Activity.this, gallery1.class));
         } else if (id == R.id.maps) {
             startActivity(new Intent(Main2Activity.this, MapsActivity.class));
 

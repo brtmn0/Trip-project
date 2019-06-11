@@ -7,6 +7,10 @@
     tools:context=".cam"
     android:orientation="vertical">
 
+    <include
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,16 +23,15 @@
 
     <TextView
         android:layout_width="250dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal"
-        />
+        android:layout_height="152dp"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text ="maak een foto"
-        android:onClick="foto"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="55dp"/>
+        android:layout_marginTop="55dp"
+        android:onClick="foto"
+        android:text="maak een foto" />
 
 </LinearLayout>

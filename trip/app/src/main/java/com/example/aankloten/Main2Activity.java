@@ -41,7 +41,7 @@ public class Main2Activity extends AppCompatActivity
         mNaarMemMaken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Main2Activity.this, cam.class));
+                startActivity(new Intent(Main2Activity.this, cam2.class));
             }
         });
     }

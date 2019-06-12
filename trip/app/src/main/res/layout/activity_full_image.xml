@@ -9,6 +9,86 @@
     <ImageView
         android:id="@+id/full_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="-2dp" />
+
+    <ImageButton
+        android:id="@+id/openButton"
+        android:layout_width="104dp"
+        android:layout_height="41dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="2dp"
+        android:onClick="openLayout"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <FrameLayout
+        android:id="@+id/infoFrame"
+        android:layout_width="match_parent"
+        android:layout_height="438dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="293dp"
+        android:background="#E6000000"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/textView8"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="0dp"
+            android:gravity="center"
+            android:text="Titel"
+            android:textColor="#F5F2F2" />
+
+        <EditText
+            android:id="@+id/titelField2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="placeholderTitel"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/textView7"
+            android:layout_alignTop="@id/textView7"
+            android:layout_marginTop="125dp"
+            android:layout_marginEnd="0dp"
+            android:gravity="center"
+            android:text="Beschrijving"
+            android:textColor="#FDF7F7" />
+
+        <EditText
+            android:id="@+id/descField2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:text="fdjsdkfjlskdjflskdjflks "
+            android:textColor="#FAF8F8" />
+
+        <Button
+            android:id="@+id/buttonThingy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/textView8"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="Edit" />
+
+    </FrameLayout>
 
 </RelativeLayout>

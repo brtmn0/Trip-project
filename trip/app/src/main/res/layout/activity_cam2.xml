@@ -26,11 +26,30 @@
         android:layout_height="152dp"
         android:layout_gravity="center_horizontal" />
 
+    <EditText
+        android:id="@+id/Titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="titel"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/beschrijvingField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="beschrijving"
+        android:visibility="invisible" />
+
     <Button
+        android:id="@+id/fotoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="10dp"
         android:onClick="foto"
         android:text="maak een foto" />
 

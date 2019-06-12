@@ -97,8 +97,9 @@ public class cam2 extends AppCompatActivity {
     }
 
     private File createFile() throws IOException {
-        name = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        String name = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File storageDir = new File (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsoluteFile() + "/trip");
+        storageDir.mkdir(); 
         File image = null;
         image = File.createTempFile(name,".jpg",storageDir);
         return image;

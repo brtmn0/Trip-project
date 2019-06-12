@@ -16,4 +16,5 @@
     <string name="map_key">placeholder_voor_key</string>
     <string name="title_activity_maps">Map</string>
     <string name="trip_share">\@string</string>
+    <string name="share">Share</string>
 </resources>

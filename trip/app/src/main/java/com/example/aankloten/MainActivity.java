@@ -24,17 +24,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loginButton = (Button) findViewById(R.id.loginB);
-        regB2 = (Button) findViewById(R.id.registerB);
-        regB1 = (Button) findViewById(R.id.loginB2);
-        username  = (EditText)findViewById(R.id.username);
-        pass  = (EditText)findViewById(R.id.pass);
-        pass2  = (EditText)findViewById(R.id.pass2);
-        pass2Text  = (TextView)findViewById(R.id.textView5);
+        loginButton = findViewById(R.id.loginB);
+        regB2 = findViewById(R.id.registerB);
+        regB1 = findViewById(R.id.loginB2);
+        username  = findViewById(R.id.username);
+        pass  = findViewById(R.id.pass);
+        pass2  = findViewById(R.id.pass2);
+        pass2Text  = findViewById(R.id.textView5);
     }
 
     public void buttonOnClick(View v) {
-        TextView text=(TextView)findViewById(R.id.textView2);
+        TextView text= findViewById(R.id.textView2);
         username1 = this.username.getText().toString();
         pass1 = this.pass.getText().toString();
 
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void regOnClick(View v) {
-        TextView text=(TextView)findViewById(R.id.textView2);
+        TextView text= findViewById(R.id.textView2);
         username1 = this.username.getText().toString();
         pass1 = this.pass.getText().toString();
         pass2string = this.pass2.getText().toString();

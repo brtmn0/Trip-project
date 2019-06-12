@@ -25,7 +25,7 @@ public class gallery1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery1);
 
-        gridView = (GridView)findViewById(R.id.image_grid);
+        gridView = findViewById(R.id.image_grid);
         list = imageReader(Environment.getExternalStorageDirectory());
 
         gridView.setAdapter(new gridAdpter());
@@ -69,7 +69,7 @@ public class gallery1 extends AppCompatActivity {
            if(convertView == null){
 
                convertView = getLayoutInflater().inflate(R.layout.row_layout,ViewGroup, false);
-               ImageView myImage = (ImageView) convertView.findViewById(R.id.my_image);
+               ImageView myImage = convertView.findViewById(R.id.my_image);
            myImage.setImageURI(Uri.parse(list.get(i).toString()));
            }
 

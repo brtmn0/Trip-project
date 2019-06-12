@@ -26,7 +26,8 @@ public class gallery1 extends AppCompatActivity {
         setContentView(R.layout.activity_gallery1);
 
         gridView = (GridView)findViewById(R.id.image_grid);
-        list = imageReader(Environment.getExternalStorageDirectory());
+        File storageDir = new File (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsoluteFile() + "/trip");
+        list = imageReader(storageDir);
 
         gridView.setAdapter(new gridAdpter());
 

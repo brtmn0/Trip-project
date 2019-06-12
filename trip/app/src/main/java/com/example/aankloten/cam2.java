@@ -84,12 +84,16 @@ public class cam2 extends AppCompatActivity {
             }
         }
         if(picTaken == 2){
+
+            SharedPreferences sp4=this.getSharedPreferences("name", MODE_PRIVATE);
+            String name4=sp4.getString("name", null);
+
             SharedPreferences sp=this.getSharedPreferences("Save", MODE_PRIVATE);
             titelString = this.titel.getText().toString();
             besString = this.bes.getText().toString();
             SharedPreferences.Editor Ed = sp.edit();
-            Ed.putString(name+"titel",titelString);
-            Ed.putString(name+"bes",besString);
+            Ed.putString(name4+"titel",titelString);
+            Ed.putString(name4+"bes",besString);
             Ed.apply();
             String unm2=sp.getString(name+"titel", null);
         }
@@ -98,6 +102,12 @@ public class cam2 extends AppCompatActivity {
 
     private File createFile() throws IOException {
         String name = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+
+        SharedPreferences sp3=this.getSharedPreferences("name", MODE_PRIVATE);
+        SharedPreferences.Editor Ed3 = sp3.edit();
+        Ed3.putString("name",name);
+        Ed3.apply();
+
         File storageDir = new File (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsoluteFile() + "/trip");
         storageDir.mkdir(); 
         File image = null;

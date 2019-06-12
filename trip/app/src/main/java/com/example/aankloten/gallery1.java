@@ -1,6 +1,7 @@
 package com.example.aankloten;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -22,10 +23,12 @@ public class gallery1 extends AppCompatActivity {
     GridView gridView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final SharedPreferences sp=this.getSharedPreferences("Foto", MODE_PRIVATE);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery1);
 
-        gridView = (GridView)findViewById(R.id.image_grid);
+        gridView = findViewById(R.id.image_grid);
         list = imageReader(Environment.getExternalStorageDirectory());
 
         gridView.setAdapter(new gridAdpter());
@@ -36,6 +39,11 @@ public class gallery1 extends AppCompatActivity {
 
                 Intent intent = new Intent(gallery1.this,FullImageActivity.class);
                 intent.putExtra("img",list.get(i).toString());
+
+                String namePath = list.get(i).getPath();
+                SharedPreferences.Editor Ed = sp.edit();
+                Ed.putString("path",namePath);
+                Ed.apply();
 
                 startActivity(intent);
 
@@ -69,7 +77,7 @@ public class gallery1 extends AppCompatActivity {
            if(convertView == null){
 
                convertView = getLayoutInflater().inflate(R.layout.row_layout,ViewGroup, false);
-               ImageView myImage = (ImageView) convertView.findViewById(R.id.my_image);
+               ImageView myImage = convertView.findViewById(R.id.my_image);
            myImage.setImageURI(Uri.parse(list.get(i).toString()));
            }
 
@@ -81,9 +89,7 @@ public class gallery1 extends AppCompatActivity {
     private ArrayList<File> imageReader(File externalStorageDirectory) {
 
         ArrayList<File> b = new ArrayList<>();
-
         File[] files = externalStorageDirectory.listFiles();
-
 
         for (int i = 0; i<files.length; i= i + 1){
 
@@ -96,11 +102,8 @@ public class gallery1 extends AppCompatActivity {
                     b.add(files[i]);
                 }
             }
-
-
         }
-    return b;
-
+        return b;
 
     }
 }

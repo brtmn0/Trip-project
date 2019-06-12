@@ -22,14 +22,21 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:layout_width="250dp"
-        android:layout_height="152dp"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/green"
+        android:gravity="center"
+        android:text="Info toevoegen gelukt!"
+        android:textSize="24sp"
+        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/Titel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="titel"
@@ -39,6 +46,7 @@
         android:id="@+id/beschrijvingField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="beschrijving"
@@ -47,10 +55,11 @@
     <Button
         android:id="@+id/fotoButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="62dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:onClick="foto"
-        android:text="maak een foto" />
+        android:text="maak een foto"
+        android:textSize="18sp" />
 
 </LinearLayout>

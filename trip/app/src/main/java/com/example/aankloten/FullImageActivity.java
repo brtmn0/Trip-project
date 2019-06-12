@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.EditText;
 import android.graphics.drawable.Drawable;
 import android.content.res.Resources;
+import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,6 +25,10 @@ public class FullImageActivity extends AppCompatActivity {
     EditText titleField;
     EditText besField;
     String nameString;
+    String titelEdited;
+    String besEdited;
+    TextView geluktMessage2;
+    public String fPath;
 
 
     @Override
@@ -32,6 +37,7 @@ public class FullImageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_full_image);
         fullImage = (ImageView)findViewById(R.id.full_image);
         String data = getIntent().getExtras().getString("img");
+        geluktMessage2 = findViewById(R.id.textView12);
         fullImage.setImageURI(Uri.parse(data));
     }
     public void openLayout(View v){
@@ -48,7 +54,7 @@ public class FullImageActivity extends AppCompatActivity {
 
         Uri u = Uri.parse(namePath);
         File f = new File("" + u);
-        String fPath = f.getName();
+        fPath = f.getName();
         fPath = fPath.substring(0,15);
 
         SharedPreferences sp2=this.getSharedPreferences("Save", MODE_PRIVATE);
@@ -56,6 +62,19 @@ public class FullImageActivity extends AppCompatActivity {
         String besString2=sp2.getString(fPath+"bes", null);
         titleField.setText(titelString2);
         besField.setText(besString2);
+    }
+
+    public void editOnClick(View v) {
+        titelEdited = this.titleField.getText().toString();
+        besEdited = this.besField.getText().toString();
+
+        SharedPreferences sp5=this.getSharedPreferences("Save", MODE_PRIVATE);
+        SharedPreferences.Editor Ed5 = sp5.edit();
+        Ed5.putString(fPath+"titel",titelEdited);
+        Ed5.putString(fPath+"bes",besEdited);
+        Ed5.apply();
+        geluktMessage2.setVisibility(View.VISIBLE);
+
     }
 
 }

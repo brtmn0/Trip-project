@@ -33,6 +33,7 @@ public class cam2 extends AppCompatActivity {
     String titelString;
     String besString;
     Button fotoButton;
+    TextView geluktMessage;
     int picTaken = 1;
 
     @Override
@@ -42,6 +43,7 @@ public class cam2 extends AppCompatActivity {
         setContentView(R.layout.activity_cam2);
         imageView = findViewById(R.id.imageView);
         fotoButton = findViewById(R.id.fotoButton);
+        geluktMessage = findViewById(R.id.textView9);
         if (Build.VERSION.SDK_INT >= 23)    {
             requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},2 );
         }
@@ -95,7 +97,7 @@ public class cam2 extends AppCompatActivity {
             Ed.putString(name4+"titel",titelString);
             Ed.putString(name4+"bes",besString);
             Ed.apply();
-            String unm2=sp.getString(name+"titel", null);
+            geluktMessage.setVisibility(View.VISIBLE);
         }
 
     }

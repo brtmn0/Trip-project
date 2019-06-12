@@ -80,6 +80,18 @@
             android:text="fdjsdkfjlskdjflskdjflks "
             android:textColor="#FAF8F8" />
 
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="230dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:text="Editen is gelukt!"
+            android:textColor="#0A0A0A"
+            android:visibility="invisible" />
+
         <Button
             android:id="@+id/buttonThingy"
             android:layout_width="wrap_content"
@@ -87,6 +99,7 @@
             android:layout_alignTop="@id/textView8"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="10dp"
+            android:onClick="editOnClick"
             android:text="Edit" />
 
     </FrameLayout>

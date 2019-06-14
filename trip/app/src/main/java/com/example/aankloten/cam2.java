@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +47,15 @@ public class cam2 extends AppCompatActivity {
         fotoButton = findViewById(R.id.fotoButton);
         geluktMessage = findViewById(R.id.textView9);
         if (Build.VERSION.SDK_INT >= 23)    {
-            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},2 );
+            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION},2 );
+        }
+        GPSTracker g = new GPSTracker(getApplicationContext());
+        Location l = g.getLocation();
+        if(l != null){
+            //@Kelly, hieronder de 2 methodes om de lat en lon coordinaten op te vragen. Die Toast kan je deleten, was alleen voor de-bug.
+            double lat = l.getLatitude();
+            double lon = l.getLongitude();
+            Toast.makeText(getApplicationContext(), "LAT: "+lat+" \n LON: "+lon,Toast.LENGTH_LONG).show();
         }
 
     }

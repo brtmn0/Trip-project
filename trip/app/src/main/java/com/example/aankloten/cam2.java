@@ -49,14 +49,7 @@ public class cam2 extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 23)    {
             requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION},2 );
         }
-        GPSTracker g = new GPSTracker(getApplicationContext());
-        Location l = g.getLocation();
-        if(l != null){
-            //@Kelly, hieronder de 2 methodes om de lat en lon coordinaten op te vragen. Die Toast kan je deleten, was alleen voor de-bug.
-            double lat = l.getLatitude();
-            double lon = l.getLongitude();
-            Toast.makeText(getApplicationContext(), "LAT: "+lat+" \n LON: "+lon,Toast.LENGTH_LONG).show();
-        }
+
 
     }
 
@@ -96,7 +89,12 @@ public class cam2 extends AppCompatActivity {
             }
         }
         if(picTaken == 2){
-
+            GPSTracker g = new GPSTracker(getApplicationContext());
+            Location l = g.getLocation();
+            double lat = l.getLatitude();
+            double lon = l.getLongitude();
+            String latitude = Double.toString(lat);
+            String longitude = Double.toString(lon);
             SharedPreferences sp4=this.getSharedPreferences("name", MODE_PRIVATE);
             String name4=sp4.getString("name", null);
 
@@ -106,8 +104,11 @@ public class cam2 extends AppCompatActivity {
             SharedPreferences.Editor Ed = sp.edit();
             Ed.putString(name4+"titel",titelString);
             Ed.putString(name4+"bes",besString);
+            Ed.putString(name4+"lat",latitude);
+            Ed.putString(name4+"lon",longitude);
             Ed.apply();
             geluktMessage.setVisibility(View.VISIBLE);
+            Toast.makeText(getApplicationContext(), "LAT: "+latitude+" \n LON: "+longitude,Toast.LENGTH_LONG).show();
         }
 
     }

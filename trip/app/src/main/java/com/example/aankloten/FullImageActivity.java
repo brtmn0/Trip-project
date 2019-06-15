@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.EditText;
 import android.graphics.drawable.Drawable;
@@ -25,6 +26,7 @@ public class FullImageActivity extends AppCompatActivity {
     ImageView i1;
     Uri uri;
     ImageButton arrowUp;
+    Button shareButton;
     FrameLayout infoFrame;
     EditText titleField;
     EditText besField;
@@ -41,6 +43,7 @@ public class FullImageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_full_image);
 
         i1 = (ImageView) findViewById(R.id.full_image);
+        shareButton = (Button) findViewById(R.id.button3);
 
         String data = getIntent().getExtras().getString("img");
         geluktMessage2 = findViewById(R.id.textView12);
@@ -72,6 +75,7 @@ public class FullImageActivity extends AppCompatActivity {
 
         arrowUp.setVisibility(View.INVISIBLE);
         infoFrame.setVisibility(View.VISIBLE);
+        shareButton.setVisibility(View.GONE);
 
         SharedPreferences sp=this.getSharedPreferences("Foto", MODE_PRIVATE);
         String namePath=sp.getString("path", null);

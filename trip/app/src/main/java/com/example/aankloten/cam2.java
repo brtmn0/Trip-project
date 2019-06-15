@@ -37,6 +37,8 @@ public class cam2 extends AppCompatActivity {
     Button fotoButton;
     TextView geluktMessage;
     int picTaken = 1;
+    String latitude;
+    String longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,8 +95,8 @@ public class cam2 extends AppCompatActivity {
             Location l = g.getLocation();
             double lat = l.getLatitude();
             double lon = l.getLongitude();
-            String latitude = Double.toString(lat);
-            String longitude = Double.toString(lon);
+            latitude = Double.toString(lat);
+            longitude = Double.toString(lon);
             SharedPreferences sp4=this.getSharedPreferences("name", MODE_PRIVATE);
             String name4=sp4.getString("name", null);
 

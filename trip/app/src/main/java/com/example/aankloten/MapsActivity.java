@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -27,6 +28,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     String latitude;
     String longitude;
     String title;
+    String bes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,13 +90,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             latitude = sp2.getString(fPath + "lat", null);
             longitude = sp2.getString(fPath + "lon", null);
             title = sp2.getString(fPath + "titel",null);
+            bes = sp2.getString(fPath + "bes", null);
+            String dats = u.toString();
+            String datum_s = dats.substring(dats.lastIndexOf("/"));
+            datum_s = datum_s.substring(1,9);
+            String d_y = datum_s.substring(0,4);
+            String d_m = datum_s.substring(4, 6);
+            String d_d = datum_s.substring(6, 8);
+            String datum = "("+d_d+"-"+d_m+"-"+d_y+")";
+
 
 
 
             if (latitude != null | longitude != null) {
                 double lat = Double.parseDouble(latitude);
                 double lot = Double.parseDouble(longitude);
-                mMap.addMarker(new MarkerOptions().position(new LatLng(lat,lot)).title(title).snippet(namePath));
+                mMap.addMarker(new MarkerOptions().position(new LatLng(lat,lot)).title(title+" "+datum).snippet(u+""));
            }
 
         }

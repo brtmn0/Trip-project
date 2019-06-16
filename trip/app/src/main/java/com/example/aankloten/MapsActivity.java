@@ -69,8 +69,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng Beurs = new LatLng(51.918811, 4.480692);
-        mMap.addMarker(new MarkerOptions().position(Beurs).title("Memory 1 - Beurs"));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Beurs, 17), 100, null);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Beurs, 10), 100, null);
 
         File storageDir = new File (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsoluteFile() + "/trip");
         list = imageReader(storageDir);

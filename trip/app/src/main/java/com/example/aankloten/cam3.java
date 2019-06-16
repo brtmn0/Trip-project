@@ -118,7 +118,6 @@ public class cam3 extends AppCompatActivity
             Ed.putString(name4+"lon",longitude);
             Ed.apply();
             geluktMessage.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), "LAT: "+latitude+" \n LON: "+longitude,Toast.LENGTH_LONG).show();
         }
     }
 

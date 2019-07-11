@@ -99,6 +99,7 @@ public class cam3 extends AppCompatActivity
             }
         }
         if(picTaken == 2){
+            picTaken = 3;
             GPSTracker g = new GPSTracker(getApplicationContext());
             Location l = g.getLocation();
             double lat = l.getLatitude();
@@ -118,6 +119,10 @@ public class cam3 extends AppCompatActivity
             Ed.putString(name4+"lon",longitude);
             Ed.apply();
             geluktMessage.setVisibility(View.VISIBLE);
+            fotoButton.setText("Ga naar gallerij");
+            return;
+        }if(picTaken == 3){
+            startActivity(new Intent(cam3.this, gallery2.class));
         }
     }
 

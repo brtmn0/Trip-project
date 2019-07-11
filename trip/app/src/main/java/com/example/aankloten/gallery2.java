@@ -2,6 +2,9 @@ package com.example.aankloten;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -25,10 +28,12 @@ import android.widget.ImageView;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public class gallery2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ArrayList<File> list;
+    ArrayList<Bitmap> thumb;
 
     GridView gridView;
 
@@ -50,6 +55,7 @@ public class gallery2 extends AppCompatActivity
         gridView = (GridView) findViewById(R.id.image_grid2);
         File storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsoluteFile() + "/trip");
         list = imageReader(storageDir);
+        thumb = thumbMaker(storageDir);
 
         gridView.setAdapter(new gallery2.gridAdpter());
 
@@ -90,6 +96,31 @@ public class gallery2 extends AppCompatActivity
                     b.add(files[i]);
                 }
             }
+        }
+        return b;
+
+    }
+
+    private ArrayList<Bitmap> thumbMaker(File externalStorageDirectory) {
+
+        ArrayList<Bitmap> b = new ArrayList<>();
+        File[] files = externalStorageDirectory.listFiles();
+
+
+        for (int i = 0; i<files.length; i= i + 1){
+
+            if (files[i].isDirectory()){
+
+                b.addAll(thumbMaker(files[i]));
+            }else{
+
+                if (files[i].getName().endsWith(".jpg")){
+                    Bitmap ThumbImage = ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(files[i].getAbsolutePath()),128,128);
+                    b.add(ThumbImage);
+                }
+            }
+
+
         }
         return b;
 
@@ -157,12 +188,12 @@ public class gallery2 extends AppCompatActivity
 
         @Override
         public int getCount() {
-            return list.size();
+            return thumb.size();
         }
 
         @Override
         public Object getItem(int i) {
-            return list.get(i);
+            return thumb.get(i);
         }
 
         @Override
@@ -179,7 +210,7 @@ public class gallery2 extends AppCompatActivity
 
                 convertView = getLayoutInflater().inflate(R.layout.row_layout, ViewGroup, false);
                 ImageView myImage = convertView.findViewById(R.id.my_image);
-                myImage.setImageURI(Uri.parse(list.get(i).toString()));
+                myImage.setImageBitmap(thumb.get(i));
             }
 
 

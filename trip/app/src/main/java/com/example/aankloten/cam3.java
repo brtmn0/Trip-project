@@ -46,6 +46,8 @@ public class cam3 extends AppCompatActivity
     String titelString;
     String besString;
     Button fotoButton;
+    Button extraMemoryButton;
+    Button naarGallerijButton;
     TextView geluktMessage;
     int picTaken = 1;
     String latitude;
@@ -68,9 +70,28 @@ public class cam3 extends AppCompatActivity
         imageView = findViewById(R.id.imageViewcam);
         fotoButton = findViewById(R.id.fotoButtoncam);
         geluktMessage = findViewById(R.id.textView9cam);
+        extraMemoryButton = findViewById(R.id.fotoButtoncam2);
+        naarGallerijButton = findViewById(R.id.fotoButtoncam3);
+
         if (Build.VERSION.SDK_INT >= 23)    {
             requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION},2 );
         }
+        
+
+        naarGallerijButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(cam3.this, gallery2.class));
+            }
+        });
+
+        extraMemoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(cam3.this, cam3.class));
+            }
+        });
+
     }
 
     public void foto(View view) throws IOException {
@@ -118,6 +139,11 @@ public class cam3 extends AppCompatActivity
             Ed.putString(name4+"lon",longitude);
             Ed.apply();
             geluktMessage.setVisibility(View.VISIBLE);
+
+            //knop Naar gallerij of Maak nog een foto/memory
+            fotoButton.setVisibility(View.INVISIBLE);
+            extraMemoryButton.setVisibility(View.VISIBLE);
+            naarGallerijButton.setVisibility(View.VISIBLE);
         }
     }
 

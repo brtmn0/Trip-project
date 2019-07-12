@@ -78,5 +78,33 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/fotoButtoncam2"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="48dp"
+        android:onClick="foto"
+        android:text="Maak extra memory"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/fotoButtoncam3"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="48dp"
+        android:onClick="foto"
+        android:text="Gallerij"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

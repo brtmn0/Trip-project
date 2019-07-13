@@ -15,6 +15,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.clustering.ClusterItem;
+import com.google.maps.android.clustering.ClusterManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     public String fPath;
+    private ClusterManager<MyItem> mClusterManager;
     ArrayList<File> list;
     String latitude;
     String longitude;
@@ -54,20 +57,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mClusterManager = new ClusterManager<MyItem>(this, mMap);
         final SharedPreferences sp = this.getSharedPreferences("Foto",MODE_PRIVATE);
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                String  namePath = marker.getSnippet();
-                Intent intent = new Intent(MapsActivity.this,FullImageActivity.class);
-                intent.putExtra("img",namePath);
-                SharedPreferences.Editor Ed = sp.edit();
-                Ed.putString("path",namePath);
-                Ed.apply();
-                startActivity(intent);
-                return false;
-            }
-        });
+        mMap.setOnCameraIdleListener(mClusterManager);
+        mMap.setOnMarkerClickListener(mClusterManager);
 
         // Add a marker in Sydney and move the camera
         LatLng Beurs = new LatLng(51.918811, 4.480692);
@@ -78,6 +71,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         int listsize = list.size();
 
+        mClusterManager.setOnClusterItemClickListener(new ClusterManager.OnClusterItemClickListener<MyItem>() {
+            @Override
+            public boolean onClusterItemClick(MyItem item) {
+                String  namePath = item.getSnippet();
+                Intent intent = new Intent(MapsActivity.this,FullImageActivity.class);
+                intent.putExtra("img",namePath);
+                SharedPreferences.Editor Ed = sp.edit();
+                Ed.putString("path",namePath);
+                Ed.apply();
+                startActivity(intent);
+                return false;
+            }
+        });
 
         for (int i = 0; i < listsize; i++) {
             String namePath = list.get(i).getPath();
@@ -105,7 +111,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if (latitude != null | longitude != null) {
                 double lat = Double.parseDouble(latitude);
                 double lot = Double.parseDouble(longitude);
-                mMap.addMarker(new MarkerOptions().position(new LatLng(lat,lot)).title(title+" "+datum).snippet(u+""));
+                MyItem marker = new MyItem(lat, lot, title, u+"");
+                mClusterManager.addItem(marker);
            }
 
         }
@@ -135,5 +142,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         return b;
 
+    }
+}
+
+class MyItem implements ClusterItem {
+    private final LatLng mPosition;
+    private final String mTitle;
+    private final String mSnippet;
+
+    public MyItem(double lat, double lng) {
+        mPosition = new LatLng(lat, lng);
+        mTitle = "";
+        mSnippet = "";
+    }
+
+    public MyItem(double lat, double lng, String title, String snippet) {
+        mPosition = new LatLng(lat, lng);
+        mTitle = title;
+        mSnippet = snippet;
+    }
+
+    @Override
+    public LatLng getPosition() {
+        return mPosition;
+    }
+
+    @Override
+    public String getTitle() {
+        return mTitle;
+    }
+
+    @Override
+    public String getSnippet() {
+        return mSnippet;
     }
 }

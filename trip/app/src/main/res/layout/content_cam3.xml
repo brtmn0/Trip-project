@@ -45,7 +45,8 @@
         android:layout_marginBottom="236dp"
         android:ems="10"
         android:hint="Vul hier de titel in."
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine|textPersonName"
+        android:maxLines="3"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="33dp" />
@@ -57,7 +58,8 @@
         android:layout_marginBottom="160dp"
         android:ems="10"
         android:hint="Vul hier jouw beschrijving in."
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine|textPersonName"
+        android:maxLines="3"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

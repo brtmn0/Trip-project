@@ -67,7 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine|textPersonName"
+            android:maxLines="2"
             android:text="placeholderTitel"
             android:textColor="#FFFFFF" />
 
@@ -91,6 +92,7 @@
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:maxLines="3"
             android:text="fdjsdkfjlskdjflskdjflks "
             android:textColor="#FAF8F8" />
 

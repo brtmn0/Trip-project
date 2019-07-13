@@ -58,6 +58,9 @@ public class cam2 extends AppCompatActivity {
     public void foto(View view) throws IOException {
         dispatchpicture();
     }
+    public void goToGallery(View view) throws IOException {
+        dispatchpicture();
+    }
 
     protected void onActivityResult(int requestCode,int resultCode, Intent data)   {
     super.onActivityResult(requestCode,resultCode,data);

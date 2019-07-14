@@ -88,7 +88,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginBottom="48dp"
         android:onClick="foto"
-        android:text="Maak extra memory"
+        android:text="extra memory"
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
